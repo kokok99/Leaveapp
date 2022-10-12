@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF</title>
+</head>
+<body>
+    <img src="{{ STATIC_ROOT }}logo-pasti-png1.png" >
+    <h1 style="font-size: 35px; text-align:center;">Laporan Permohonan Cuti</h1>
+<hr>
+<h1 style="font-size: 17px;"><b>Pemohon: </b></h1>
+<h2>{{ app.pemohon }}</h2>
+<hr>
+<h1 style="font-size: 17px;"><b>Jenis Cuti:</b></h1>
+<h2><span>{{ app.leave }}</span></h2>
+<hr>
+<h1 style="font-size: 17px;"><b>Dari:</b></h1>
+<h2>{{ app.from_date }}</h2>
+<h1 style="font-size: 17px;"><b>Ke:</b></h1>
+<h2>{{ app.to_date }}</h2>
+<hr>
+<h1 style="font-size: 17px;"><b>Sebab/Catatan</b></h1>
+<h2>{{ app.details }}</h2>
+<hr>
+<h1>Status: {{ app.status }}</h1>
+<h1>Tarikh: {{ app.date_created|date:"F d, Y" }}</h1>
+</body>
+</html>

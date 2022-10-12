@@ -1,0 +1,9 @@
+{% extends 'core/home.html' %}
+
+{% block content %}
+{% if user.is_authenticated and user.is_staff %}
+{% include 'core/dashboard_staff.html' %}
+{% else %}
+{% include 'core/dashboard_admin.html' %}
+{% endif %}
+{% endblock %}

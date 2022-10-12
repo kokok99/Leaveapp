@@ -1,0 +1,36 @@
+{% extends 'core/home.html' %}
+{% block content %}
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>Delete </h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Home</a></li>
+                <li class="breadcrumb-item active">Delete</li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+      <div class="row mt-5">
+        <div class="col-md-6 offset-md-3">
+            <div class="border bg-white p-3">
+                <h3>Padam</h3>
+                <hr>
+                <div class="alert alert-danger">
+                    <h4>Anda yakin dengan pilihan anda untuk padam ?</h4>
+                </div>
+                <form method="POST">
+                    {% csrf_token %}
+                    <a class="btn btn-secondary" href="{% url 'profile-staff' %}">Cancel</a>
+                    <input class="btn btn-danger" type="submit" value="confirm">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

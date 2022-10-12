@@ -1,0 +1,130 @@
+{% extends 'core/home.html' %}
+{% load static %}
+{% block content %}
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>Maklumat Staff</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">Maklumat Staff</li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+      <section style="background-color: #eee;">
+      
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="card mb-4">
+                <div class="card-body text-center">
+                  <img src="{{ staff.image.url }}" alt="avatar"
+                    class="rounded-circle img-fluid" style="width: 150px;">
+                  <h5 class="my-3">{{ staff.fullname }}</h5>
+                  <p class="text-muted mb-1">{{ staff.cawangan }}</p>
+                  <div class="d-flex justify-content-center mb-2">
+                    <a href="{% url 'edit_staff_details' staff.id %}" class="btn btn-primary btn-sm">Edit</a>&nbsp;
+                    <a href="{% url 'staff_delete' staff.id %}" class="btn btn-danger btn-sm">Padam</a>&nbsp;
+                    <a href="{% url 'profile-staff' %}" class="btn btn-secondary btn-sm">Back</a>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            <div class="col-lg-8">
+              <div class="card mb-4">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Nama Penuh</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{ staff.fullname  }}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Email</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{ staff.email }}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Nombor Telefon</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{ staff.phone }}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Cawangan</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{ staff.cawangan }}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Alamat</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{ staff.address }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card mb-4 mb-md-0">
+                    <div class="card-body">
+                      <p class="mb-4"><span class="text-primary font-italic me-1">Maklumat</span> Baki Cuti
+                      </p>
+                      <p class="mb-1" style="font-size: .77rem;">Cuti Tahunan</p>
+                      <div>
+                        {{ staff.tahunan }} Hari
+                      </div>
+                      <p class="mt-4 mb-1" style="font-size: .77rem;">Cuti Sakit</p>
+                      <div>
+                        {{ staff.sakit }} Hari
+                      </div>
+                      <p class="mt-4 mb-1" style="font-size: .77rem;">Cuti Bersalin</p>
+                      <div>
+                        {{ staff.bersalin }} Hari
+                      </div>
+                      <p class="mt-4 mb-1" style="font-size: .77rem;">Cuti Haji</p>
+                      <div>
+                        {{ staff.haji }} Haji
+                      </div>
+                      <p class="mt-4 mb-1" style="font-size: .77rem;">Cuti Umrah</p>
+                      <div>
+                        {{ staff.umrah }} Hari
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="card mb-4 mb-md-0">
+                    <!--<div class="card-body">
+                      
+                    </div>-->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+{% endblock %}

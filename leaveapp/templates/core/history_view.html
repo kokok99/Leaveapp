@@ -1,0 +1,104 @@
+{% extends 'core/home.html' %}
+{% block content %}
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>View</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Home</a></li>
+                <li class="breadcrumb-item active">View</li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+      <section style="background-color: #eee; font-size: 18px; padding-left: 50px;">  
+        <div class="card card-primary mr-5 ml-5">
+            <div class="card-header">
+              <h3 class="card-title">Permohonan Cuti </h3>
+            </div>
+                <div class="card-body p-0">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Info</th>
+                        <th>Details</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Pemohon</td>
+                        <td>
+                          <div>
+                            {{ app.pemohon }}
+                          </div>
+                        </td>
+                      </tr>
+                      
+                     
+                      <tr>
+                        <td>Jenis Cuti</td>
+                        <td>
+                          <div>
+                            {{ app.leave }}
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Dari - Ke</td>
+                        <td>
+                          <div>
+                            {{ app.from_date }} - {{ app.to_date }}
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Bilangan Hari</td>
+                        <td>
+                          <div>
+                            {{ tot.days }} Hari
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Lampiran</td>
+                        <td>
+                          <div>
+                            {% if app.attachment %}
+                            <a href="{{ app.attachment.url }}">View</a>
+                            {% else %}
+                            None
+                            {% endif %}
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Sebab/catatan</td>
+                        <td>
+                          <div>
+                            {{ app.details }}
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            <!-- form start -->
+            <form method="POST">
+                {% csrf_token %}
+            
+              <!-- /.card-body -->
+              
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="{% url 'history' %}" class="btn btn-secondary">Back</a>
+              </div>
+            </form>
+        </div>
+      </section>
+</div>
+{% endblock %}

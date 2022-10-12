@@ -1,0 +1,102 @@
+{% extends 'core/home.html' %}
+{% load static %}
+{% block content %}
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>Edit Profile</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">Edit Profile</li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+      
+    <section style="background-color: #eee;">  
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="card mb-4">
+                <div class="card-body text-center">
+                  <img src="{{ user.image.url }}" alt="avatar"
+                    class="rounded-circle img-fluid" style="width: 150px;">
+                  <h5 class="my-3">{{ user.username }}</h5>
+                  <p class="text-muted mb-1">{{ user.designation }}</p>
+                  <p class="text-muted mb-4">{{ user.cawangan }}</p>
+                </div>
+              </div>
+              <div class="card mb-4 mb-lg-0">
+                <div class="card-body p-0">
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="card mb-4">
+                <div class="card card-warning">
+                    <div class="card-header">
+                      <h3 class="card-title">Edit Profile</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form method="POST" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      <div class="card-body">
+                        <div class="form-group">
+                          <label>Name</label>
+                          {{ form.username }}
+                        </div>
+                        <div class="form-group">
+                          <label>Email</label>
+                          {{ form.email }}
+                        </div>
+                        <div class="form-group">
+                            <label>Phone number</label>
+                            {{ form.phone }}
+                          </div>
+                        <div class="form-group">
+                            <label>Cawangan</label>
+                            {{ form.cawangan }}
+                        </div>
+                        <div class="form-group">
+                            <label>Address</label>
+                            {{ form.address }}
+                          </div>
+                        <div class="form-group">
+                          <label>Profile picture</label>
+                          <div class="input-group">
+                              {{ form.image }}
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /.card-body -->
+      
+                      <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                      </div>
+                      <div class="card-footer">
+                        <a href="{% url 'profile' %}" class="btn btn-danger">Back</a>
+                      </div>
+                    </form>
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                
+                </div>
+                <div class="col-md-6">
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+</div>
+{% endblock %}

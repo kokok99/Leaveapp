@@ -1,0 +1,90 @@
+{% extends 'core/home.html' %}
+{% block content %}
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>Tambah Staff</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">Staff</li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+      <section>
+        <div class="card card-secondary mr-5 ml-5">
+          <div class="card-header">
+            <h3 class="card-title">Tambah Staff melalui fail CSV</h3>
+          </div>
+          <!-- /.card-header -->
+          <!-- form start -->
+          <form method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+            <div class="card-body">
+              <div class="form-group">
+                <label>Pilih Fail</label>
+                <input type="file" name="file">
+              </div>
+            </div>
+            <!-- /.card-body -->
+
+            <div class="card-footer">
+              <button type="submit" class="btn btn-primary">Tambah</button>
+            </div>
+          </form>
+        </div>
+      </section>
+      <section style="background-color: #eee;">  
+        <h3 style="text-align: center;">ATAU</h3>
+        <div class="card card-success mr-5 ml-5">
+            <div class="card-header">
+              <h3 class="card-title">Tambah Staff Secara Manual</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+              <div class="card-body">
+                <div class="form-group">
+                  <label>Nama Penuh</label>
+                  {{ form.fullname }}
+                </div>
+                <div class="form-group">
+                  <label>Email</label>
+                  {{ form.email }}
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <label>Nombor Telefon</label>
+                    {{ form.phone }}
+                  </div>
+                  <div class="col">
+                    <label>Cawangan</label>
+                    {{ form.cawangan }}
+                  </div>
+                </div>
+                <br>
+                <div class="form-group">
+                  <label>Alamat</label>
+                  {{ form.address }}
+                </div>
+                <div class="form-group">
+                  <label>Gambar</label><br>
+                  {{form.image}}
+                </div>
+              <!-- /.card-body -->
+
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Tambah</button>
+              </div>
+            </form>
+          </div>
+
+      </section>
+</div>
+{% endblock %}

@@ -1,0 +1,8 @@
+Django
+xhtml2pdf
+Pillow
+mysqlclient
+django-resized
+django-filter
+django-crispy-forms
+mod_wsgi
